@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanjore Degree Coffee</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+
+<style>
+    .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .whatsapp-icon {
+        width: 60px; /* Adjust size */
+        height: 60px;
+        border-radius: 50%; /* Makes it circular */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .whatsapp-icon:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+    .animated-image {
+        transform: scale(0.5);
+        opacity: 0.5;
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    }
+
+    .animated-text {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    }
+
+    .animated-image.in-view {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .animated-text.in-view {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .best-section img {
+        width: 60%; /* Same width for both images */
+        transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    }
+    .best-section img:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+    .gallery-section {
+        background-color: #28a745; /* Updated success green */
+        padding: 50px 15px;
+    }
+    
+    .gallery-section h2 {
+        color: white; /* Title color */
+        margin-bottom: 20px;
+    }
+
+    .gallery-section img {
+        width: 100%; /* Ensures equal width */
+        height: 250px; /* Fixed height for uniformity */
+        object-fit: cover; /* Prevents distortion */
+        transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+    }
+
+    .gallery-section img:hover {
+        transform: scale(1.1); /* Zoom effect */
+    }
+    .testimonial-section {
+        background-color: #f8f9fa; /* Light background */
+        padding: 50px 15px;
+        text-align: center;
+    }
+
+    .testimonial-container {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto; /* Enables horizontal scrolling */
+        padding-bottom: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #28a745 #ddd; /* Scrollbar styling */
+        justify-content: center; /* Center align */
+    }
+
+    .testimonial-card {
+        flex: 0 0 auto;
+        width: 300px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .testimonial-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    /* Scrollbar Customization for Chrome */
+    .testimonial-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .testimonial-container::-webkit-scrollbar-thumb {
+        background: #28a745;
+        border-radius: 10px;
+    }
+
+    .testimonial-container::-webkit-scrollbar-track {
+        background: #ddd;
+        border-radius: 10px;
+    }
+
+    /* Responsive: Stack on Small Screens */
+    @media (max-width: 768px) {
+        .testimonial-container {
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden; /* Disable horizontal scrolling */
+        }
+        .testimonial-card {
+            width: 90%;
+        }
+    }
+</style>
+<body>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="home">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./src/Images/Org.png" alt="Logo" width="85" height="70" class="d-inline-block align-text-top">
+                <span class="ms-2"><b>Tanjore Degree Coffee</b></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./routes/shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ourbest">Our Best</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" style="color: blue;">Reach Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./src/Images/Banner-img 1.png" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./src/Images/Banner-img 2.png" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./src/Images/Banner-img 3.png" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="./src/Images/Banner-img 4.jpeg" class="d-block w-100" alt="Image 4">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    
+
+
+
+
+
+
+
+    <div class="container-fluid bg-success text-white py-5">
+        <div class="container text-center">
+            <!-- Animated Image -->
+            <img src="./src/Images/About us img.png" alt="About Us Image" class="img-fluid animated-image mb-3">
+    
+            <!-- Animated Text -->
+            <div class="animated-text">
+                <h2>About Us</h2>
+                <p>We are passionate about delivering authentic South Indian coffee and rose milk. Our dedication to quality and tradition ensures a delightful experience with every sip.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+
+    <div class="container py-5 bg-white text-center best-section" id="ourbest">
+        <h2 class="mb-4">Our Best</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-3">
+                <img src="./src/Images/Org authentic img.png" 
+                     class="img-fluid rounded shadow" alt="Best Item 1">
+                <h2 class="mt-2">Authenticity</h2>
+                <h5 class="mt-2">Our commitment to preserving the authentic taste and aroma of South Indian filter coffee sets us apart from the rest. With Tanjore Degree Coffee, you can enjoy the true essence of this beloved beverage in the comfort of your own home.</h5>
+            </div>
+            <div class="col-md-6 mb-3">
+                <img src="./src/Images/Best Quality Img.png" 
+                     class="img-fluid rounded shadow" alt="Best Item 2">
+                <h2 class="mt-2">Quality</h2>
+                <h5 class="mt-2">Produces by Boiled Milk, Crafted with care and precision, our rose milk embodies the perfect balance of creamy richness and delicate floral notes, ensuring each sip is a decadent delight of unmatched quality</h5>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container-fluid text-center gallery-section" id="gallery">
+        <h2>Our Gallery</h2>
+        <div class="row g-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <img src="./src/Images/Gallery-img 1.png" class="img-fluid rounded shadow" alt="Gallery Image 1">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <img src="./src/Images/Gallery-img 2.jpeg" class="img-fluid rounded shadow" alt="Gallery Image 2">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <img src="./src/Images/Gallery-img 3.png" class="img-fluid rounded shadow" alt="Gallery Image 3">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                <img src="./src/Images/Gallery-img 4.jpeg" class="img-fluid rounded shadow" alt="Gallery Image 4">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid testimonial-section">
+        <h2 class="mb-4">Client Testimonials</h2>
+        <div class="testimonial-container">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" class="testimonial-img" alt="Client 1">
+                <h5>John Doe</h5>
+                <p>"The best coffee I have ever tasted! Smooth and rich in flavor. Highly recommended!"</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" class="testimonial-img" alt="Client 2">
+                <h5>Sarah Lee</h5>
+                <p>"Absolutely love the authentic taste of Tanjore Degree Coffee. It reminds me of home!"</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/3.jpg" class="testimonial-img" alt="Client 3">
+                <h5>Michael Smith</h5>
+                <p>"Great service and an amazing product. Perfect for coffee lovers!"</p>
+            </div>
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/4.jpg" class="testimonial-img" alt="Client 4">
+                <h5>Jessica Brown</h5>
+                <p>"A wonderful experience with such a delightful coffee blend. Will buy again!"</p>
+            </div>
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/5.jpg" class="testimonial-img" alt="Client 5">
+                <h5>David Wilson</h5>
+                <p>"Excellent quality and a must-try for all coffee enthusiasts!"</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    <div class="container-fluid bg-primary text-white py-5" style="min-height: 50vh;" id="contact">
+        <div class="row text-center text-lg-start align-items-center h-100">
+            <!-- Logo & Name -->
+            <div class="col-lg-4 mb-4 mb-lg-0 px-5 text-center rounded text-lg-start">
+                <img src="./src/Images/Org.png" class="img-fluid rounded-circle" alt="Logo" width="80">
+                <h3 class="mt-2">Tanjore Degree Coffee</h3>
+            </div>
+    
+            <!-- Contact Details -->
+            <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                <h4>Contact Us</h4>
+                <p>Email: support@tanjorecoffee.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Address: Bhubaneswar, India</p>
+            </div>
+    
+            <!-- Get in Touch Form -->
+            <div class="col-lg-4">
+                <h4>Get in Touch</h4>
+                <form>
+                    <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+                    <input type="tel" class="form-control mb-2" placeholder="Mobile No." required>
+                    <input type="email" class="form-control mb-2" placeholder="Email ID" required>
+                    <textarea class="form-control mb-2" placeholder="Express in 300 words" rows="4" maxlength="300" required></textarea>
+                    <button type="submit" class="btn btn-light mt-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let img = document.querySelector('.animated-image');
+        let text = document.querySelector('.animated-text');
+
+        img.classList.add('in-view');
+        text.classList.add('in-view');
+    });
+</script>

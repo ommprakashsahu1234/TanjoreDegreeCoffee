@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+
+<style>
+    .animated-image {
+        transform: scale(0.5);
+        opacity: 0.5;
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    }
+
+    .animated-text {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    }
+
+    .animated-image.in-view {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .animated-text.in-view {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .shopping-section {
+        background-color: #f8f9fa;
+        padding: 50px 15px;
+        text-align: center;
+    }
+
+    .card-img-top {
+    height: 200px; /* Adjust height as needed */
+    object-fit:contain; /* Ensures images are cropped but maintain aspect ratio */
+}
+
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="home">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../src/Images/Org.png" alt="Logo" width="85" height="70" class="d-inline-block align-text-top">
+                <span class="ms-2"><b>Tanjore Degree Coffee</b></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" style="color: blue;">Reach Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Your Cart</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Product 1 -->
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <img src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Premium Coffee Beans</h5>
+                        <p class="card-text">Price: ₹499</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-sm btn-outline-secondary">-</button>
+                            <span class="mx-2">1</span>
+                            <button class="btn btn-sm btn-outline-secondary">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <img src="https://images.pexels.com/photos/2878712/pexels-photo-2878712.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Authentic Filter Coffee</h5>
+                        <p class="card-text">Price: ₹299</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-sm btn-outline-secondary">-</button>
+                            <span class="mx-2">1</span>
+                            <button class="btn btn-sm btn-outline-secondary">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="col">
+                <div class="card h-100 text-center">
+                    <img src="https://images.pexels.com/photos/2149537/pexels-photo-2149537.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Coffee Mug</h5>
+                        <p class="card-text">Price: ₹199</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-sm btn-outline-secondary">-</button>
+                            <span class="mx-2">1</span>
+                            <button class="btn btn-sm btn-outline-secondary">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid bg-body-secondary text-black py-5" style="min-height: 50vh;" id="contact">
+        <div class="row text-center text-lg-start align-items-center h-100">
+            <!-- Logo & Name -->
+            <div class="col-lg-4 mb-4 mb-lg-0 px-5 text-center rounded text-lg-start">
+                <img src="../src/Images/Org.png" class="img-fluid rounded-circle" alt="Logo" width="80">
+                <h3 class="mt-2">Tanjore Degree Coffee</h3>
+            </div>
+    
+            <!-- Contact Details -->
+            <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                <h4>Contact Us</h4>
+                <p>Email: support@tanjorecoffee.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Address: Bhubaneswar, India</p>
+            </div>
+    
+            <!-- Get in Touch Form -->
+            <div class="col-lg-4">
+                <h4>Get in Touch</h4>
+                <form>
+                    <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+                    <input type="tel" class="form-control mb-2" placeholder="Mobile No." required>
+                    <input type="email" class="form-control mb-2" placeholder="Email ID" required>
+                    <textarea class="form-control mb-2" placeholder="Express in 300 words" rows="4" maxlength="300" required></textarea>
+                    <button type="submit" class="btn btn-light mt-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let img = document.querySelector('.animated-image');
+        let text = document.querySelector('.animated-text');
+
+        img.classList.add('in-view');
+        text.classList.add('in-view');
+    });
+</script>

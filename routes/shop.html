@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Page</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+
+<style>
+    .animated-image {
+        transform: scale(0.5);
+        opacity: 0.5;
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    }
+
+    .animated-text {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    }
+
+    .animated-image.in-view {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .animated-text.in-view {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .shopping-section {
+        background-color: #f8f9fa;
+        padding: 50px 15px;
+        text-align: center;
+    }
+
+    /* Menu Bar */
+    .shopping-menu {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        padding: 10px 0;
+        scrollbar-width: thin;
+        scrollbar-color: #28a745 #ddd;
+    }
+
+    .shopping-menu a {
+        text-decoration: none;
+        color: #333;
+        background: #ffffff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .shopping-menu a:hover {
+        background: #28a745;
+        color: white;
+    }
+
+    /* Shopping Items Grid */
+    .shopping-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shopping-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .shopping-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .shopping-card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Responsive: Stack on Small Screens */
+    @media (max-width: 768px) {
+        .shopping-menu {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+        .shopping-card {
+            width: 90%;
+            margin: auto;
+        }
+    }
+
+    .features-section {
+        background-color: #f8f9fa;
+        padding: 50px 15px;
+        text-align: center;
+    }
+
+    .features-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .feature-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: scale(1.05);
+    }
+
+    .feature-emoji {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .feature-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .feature-subtext {
+        font-size: 18px;
+        color: #666;
+    }
+
+    /* Responsive: Stack on Small Screens */
+    @media (max-width: 768px) {
+        .feature-card {
+            width: 90%;
+            margin: auto;
+        }
+    }
+
+    .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .whatsapp-icon {
+        width: 60px; /* Adjust size */
+        height: 60px;
+        border-radius: 50%; /* Makes it circular */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .whatsapp-icon:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+</style>
+<body>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="whatsapp-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="home">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../src/Images/Org.png" alt="Logo" width="85" height="70" class="d-inline-block align-text-top">
+                <span class="ms-2"><b>Tanjore Degree Coffee</b></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./login.html">Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" style="color: blue;">Reach Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="../src/Images/Banner-img 1.png" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="../src/Images/Banner-img 2.png" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="../src/Images/Banner-img 3.png" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="../src/Images/Banner-img 4.jpeg" class="d-block w-100" alt="Image 1">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    
+
+
+
+
+
+
+
+    <div class="container-fluid shopping-section">
+        <h2 class="mb-4">Shopping Facilities</h2>
+        
+        <!-- Menu Bar -->
+        <div class="shopping-menu">
+            <a href="#coffee">Coffee</a>
+            <a href="#tea">Tea</a>
+            <a href="#snacks">Snacks</a>
+            <a href="#accessories">Accessories</a>
+        </div>
+    
+        <!-- Shopping Items -->
+        <div class="shopping-container">
+            <!-- Coffee Category -->
+            <div class="shopping-card" id="coffee">
+                <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Coffee">
+                <h5>Premium Coffee</h5>
+                <p>Rich and aromatic blend for coffee lovers.</p>
+            </div>
+    
+            <!-- Tea Category -->
+            <div class="shopping-card" id="tea">
+                <img src="https://images.pexels.com/photos/905485/pexels-photo-905485.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tea">
+                <h5>Authentic Tea</h5>
+                <p>Freshly brewed tea with a unique taste.</p>
+            </div>
+    
+            <!-- Snacks Category -->
+            <div class="shopping-card" id="snacks">
+                <img src="https://images.pexels.com/photos/298217/pexels-photo-298217.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Snacks">
+                <h5>Delicious Snacks</h5>
+                <p>Perfect accompaniment for your beverage.</p>
+            </div>
+    
+            <!-- Accessories Category -->
+            <div class="shopping-card" id="accessories">
+                <img src="https://images.pexels.com/photos/6312270/pexels-photo-6312270.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Accessories">
+                <h5>Quality Accessories</h5>
+                <p>Elegant mugs and brewing accessories.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid features-section">
+        <h2 class="mb-4">Why Choose Us?</h2>
+    
+        <div class="features-container">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-emoji">☺️</div>
+                <h3 class="feature-title">Premium Quality</h3>
+                <h5 class="feature-subtext">We use the finest ingredients for an authentic taste.</h5>
+            </div>
+    
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-emoji">🚚</div>
+                <h3 class="feature-title">Fast Delivery</h3>
+                <h5 class="feature-subtext">Get your coffee delivered hot & fresh in no time.</h5>
+            </div>
+    
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-emoji">🌎</div>
+                <h3 class="feature-title">Eco-Friendly</h3>
+                <h5 class="feature-subtext">Sustainably sourced and packaged with care.</h5>
+            </div>
+    
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-emoji">📞</div>
+                <h3 class="feature-title">Customer Satisfaction</h3>
+                <h5 class="feature-subtext">We prioritize customer happiness with every sip.</h5>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container-fluid bg-body-secondary text-black py-5" style="min-height: 50vh;" id="contact">
+        <div class="row text-center text-lg-start align-items-center h-100">
+            <!-- Logo & Name -->
+            <div class="col-lg-4 mb-4 mb-lg-0 px-5 text-center rounded text-lg-start">
+                <img src="../src/Images/Org.png" class="img-fluid rounded-circle" alt="Logo" width="80">
+                <h3 class="mt-2">Tanjore Degree Coffee</h3>
+            </div>
+    
+            <!-- Contact Details -->
+            <div class="col-lg-4 mb-4 mb-lg-0 text-center">
+                <h4>Contact Us</h4>
+                <p>Email: support@tanjorecoffee.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Address: Bhubaneswar, India</p>
+            </div>
+    
+            <!-- Get in Touch Form -->
+            <div class="col-lg-4">
+                <h4>Get in Touch</h4>
+                <form>
+                    <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+                    <input type="tel" class="form-control mb-2" placeholder="Mobile No." required>
+                    <input type="email" class="form-control mb-2" placeholder="Email ID" required>
+                    <textarea class="form-control mb-2" placeholder="Express in 300 words" rows="4" maxlength="300" required></textarea>
+                    <button type="submit" class="btn btn-light mt-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let img = document.querySelector('.animated-image');
+        let text = document.querySelector('.animated-text');
+
+        img.classList.add('in-view');
+        text.classList.add('in-view');
+    });
+</script>
